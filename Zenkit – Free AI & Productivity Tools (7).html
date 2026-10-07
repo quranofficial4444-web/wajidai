@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zenkit: Free Online Tools for Students & Creators</title>
+<meta name="description" content="Zenkit offers free, private browser tools: word counter, case converter, JSON formatter, text rewriter, unit converter and YouTube title helper. No signup.">
+<meta property="og:title" content="Zenkit: Free Online Tools for Students & Creators">
+<meta property="og:description" content="Free AI & productivity tools that run 100% in your browser. Nothing is uploaded.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"Zenkit","description":"Free AI & productivity tools for students, freelancers and content creators."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are Zenkit tools really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every tool is free to use with no signup or limits."}},{"@type":"Question","name":"Is my text uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. All tools run inside your browser, so your content never leaves your device."}},{"@type":"Question","name":"Can the text rewriter beat AI detectors?","acceptedAnswer":{"@type":"Answer","text":"It is a simple rule-based rewriter and gives no guarantee. Always review and edit the result yourself."}}]}]}</script>
+<style>
+:root{--bg:#f4f6fc;--fg:#0f172a;--mu:#55607a;--card:rgba(255,255,255,.72);--bd:rgba(15,23,42,.12);--a:#4f46e5;--b:#0891b2;--on:#fff;--in:#fff;--sh:0 10px 34px rgba(15,23,42,.09);--ok:#047857;--wr:#b45309;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="dark"]{--bg:#0b1020;--fg:#e8ecf8;--mu:#9aa5c0;--card:rgba(255,255,255,.06);--bd:rgba(255,255,255,.13);--a:#8b8cff;--b:#22d3ee;--on:#0b1020;--in:#141b33;--sh:0 10px 34px rgba(0,0,0,.45);--ok:#34d399;--wr:#fbbf24}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1020;--fg:#e8ecf8;--mu:#9aa5c0;--card:rgba(255,255,255,.06);--bd:rgba(255,255,255,.13);--a:#8b8cff;--b:#22d3ee;--on:#0b1020;--in:#141b33;--sh:0 10px 34px rgba(0,0,0,.45);--ok:#34d399;--wr:#fbbf24}}
+:root[data-theme="blue"]{--bg:#0a2540;--fg:#eaf4ff;--mu:#a9c3de;--card:rgba(255,255,255,.08);--bd:rgba(255,255,255,.17);--a:#38bdf8;--b:#60a5fa;--on:#06213a;--in:#0f3157;--sh:0 10px 34px rgba(0,20,50,.5);--ok:#6ee7b7;--wr:#fcd34d}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;font:400 16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--fg);transition:background .4s,color .4s;overflow-x:hidden}
+.mesh{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.mesh:before,.mesh:after{content:"";position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(90px);opacity:.38;animation:fl 18s ease-in-out infinite alternate}
+.mesh:before{background:var(--a);top:-20vmax;left:-15vmax}
+.mesh:after{background:var(--b);bottom:-25vmax;right:-15vmax;animation-delay:-7s}
+@keyframes fl{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:var(--card);border-bottom:1px solid var(--bd)}
+.w{max-width:1080px;margin:0 auto;padding:0 18px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;height:62px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:20px;color:var(--fg);text-decoration:none}
+nav a{color:var(--mu);text-decoration:none;font-weight:600;margin-right:16px}
+nav a:hover{color:var(--fg)}
+.th{display:flex;gap:4px;padding:3px;border:1px solid var(--bd);border-radius:999px;background:var(--in)}
+.th button{border:0;background:none;border-radius:999px;width:32px;height:32px;cursor:pointer;font-size:15px;transition:.2s}
+.th button[aria-pressed=true]{background:linear-gradient(135deg,var(--a),var(--b))}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--a);outline-offset:2px}
+.hero{padding:76px 0 40px;text-align:center}
+.pill{display:inline-block;padding:6px 14px;border:1px solid var(--bd);border-radius:999px;background:var(--card);font-size:13px;font-weight:600;color:var(--mu)}
+h1{font-size:clamp(34px,7vw,60px);line-height:1.08;margin:18px 0 14px;font-weight:800;letter-spacing:-.03em}
+.g{background:linear-gradient(120deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:600px;margin:0 auto 26px;color:var(--mu);font-size:18px}
+.btn{display:inline-block;padding:10px 16px;border-radius:12px;border:1px solid var(--bd);background:var(--in);color:var(--fg);font:600 14px Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--sh)}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.pri{background:linear-gradient(135deg,var(--a),var(--b));color:var(--on);border:0;padding:13px 24px;font-size:16px}
+h2{font-size:clamp(26px,4vw,34px);margin:0 0 6px;letter-spacing:-.02em}
+.mu{color:var(--mu)}.sm{font-size:13px}
+section{padding:36px 0}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px}
+.tools input{flex:1 1 220px}
+input,select,textarea{font:inherit;font-size:16px;color:var(--fg);background:var(--in);border:1px solid var(--bd);border-radius:12px;padding:11px 14px;max-width:100%}
+textarea{width:100%;min-height:160px;resize:vertical;display:block;margin-bottom:10px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:8px 14px;border-radius:999px;border:1px solid var(--bd);background:var(--card);color:var(--fg);font:600 13px Inter,sans-serif;cursor:pointer;transition:.2s}
+.chip[aria-pressed=true]{background:linear-gradient(135deg,var(--a),var(--b));color:var(--on);border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{text-align:left;padding:22px;border-radius:20px;border:1px solid var(--bd);background:var(--card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:var(--sh);color:var(--fg);font:inherit;cursor:pointer;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-5px);border-color:var(--a)}
+.card h3{margin:10px 0 4px;font-size:17px}.card p{margin:0;color:var(--mu);font-size:14px}
+.ic{font-size:28px}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+details{border:1px solid var(--bd);background:var(--card);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{margin:10px 0 0;color:var(--mu)}
+footer{padding:30px 0 40px;border-top:1px solid var(--bd);text-align:center;color:var(--mu);font-size:14px}
+dialog{width:min(720px,94vw);max-height:90vh;border:1px solid var(--bd);border-radius:22px;padding:0;background:var(--bg);color:var(--fg);box-shadow:0 30px 80px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(5,10,25,.6);backdrop-filter:blur(4px)}
+dialog[open]{animation:pop .3s ease}
+@keyframes pop{from{opacity:0;transform:translateY(20px) scale(.97)}}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--bd)}
+.dh h2{font-size:20px;margin:0}
+#db{padding:20px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+.st{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-top:6px}
+.st div{padding:12px;border:1px solid var(--bd);border-radius:14px;background:var(--card);text-align:center}
+.st b{display:block;font-size:22px}.st span{font-size:12px;color:var(--mu)}
+.ok{color:var(--ok)}.warn{color:var(--wr)}.msg{font-weight:600;min-height:24px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}.row>*{flex:1 1 130px}
+.line{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--bd)}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:999px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:99}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:600px){nav{display:none}.hero{padding-top:48px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="mesh" aria-hidden="true"></div>
+<header>
+<div class="w nav">
+<a class="logo" href="#top" aria-label="Zenkit home"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--a)"/><stop offset="1" style="stop-color:var(--b)"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#lg)"/><path d="M18 5 9 18h6l-1 9 9-13h-6z" fill="#fff"/></svg>Zenkit</a>
+<nav aria-label="Main"><a href="#tools">Tools</a><a href="#faq">FAQ</a></nav>
+<div class="th" role="group" aria-label="Theme">
+<button data-th="light" aria-label="Light theme" title="Light">☀️</button>
+<button data-th="dark" aria-label="Dark theme" title="Dark">🌙</button>
+<button data-th="blue" aria-label="Blue theme" title="Blue">💧</button>
+</div>
+</div>
+</header>
+<main id="top">
+<div class="w hero">
+<span class="pill">✨ 100% free · No signup · Runs in your browser</span>
+<h1>Smart tools for <span class="g">students, freelancers & creators</span></h1>
+<p class="lead">Write, format, convert and plan faster. Your content never leaves your device.</p>
+<a class="btn pri" href="#tools">Explore free tools</a>
+</div>
+<section id="tools"><div class="w">
+<h2>All tools</h2>
+<p class="mu" style="margin:0">Pick a tool, use it instantly.</p>
+<div class="tools">
+<input id="q" type="search" placeholder="Search tools…" aria-label="Search tools">
+<div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+</div>
+<div class="grid" id="grid"></div>
+</div></section>
+<section id="faq"><div class="w">
+<h2>Frequently asked questions</h2><br>
+<details class="rv"><summary>Are Zenkit tools really free?</summary><p>Yes. Every tool is free to use with no signup or limits.</p></details>
+<details class="rv"><summary>Is my text uploaded anywhere?</summary><p>No. All tools run inside your browser, so your content never leaves your device.</p></details>
+<details class="rv"><summary>Can the text rewriter beat AI detectors?</summary><p>It is a simple rule-based rewriter and gives no guarantee. Always review and edit the result yourself.</p></details>
+</div></section>
+</main>
+<footer><div class="w">© <span id="yr"></span> Zenkit · Free tools, built for privacy.</div></footer>
+
+<dialog id="dlg" aria-labelledby="dt">
+<div class="dh"><h2 id="dt"></h2><button class="btn" id="x" aria-label="Close">✕</button></div>
+<div id="db"></div>
+</dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const op=a=>a.map(k=>`<option>${k}</option>`).join('');
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),1800)}
+async function cp(s){try{await navigator.clipboard.writeText(s);toast('Copied ✓')}catch(e){try{const z=document.createElement('textarea');z.value=s;document.body.append(z);z.select();document.execCommand('copy');z.remove();toast('Copied ✓')}catch(e2){toast('Copy failed — select and copy manually')}}}
+
+/* theme */
+function setTheme(t,save){document.documentElement.dataset.theme=t;$$('[data-th]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.th===t));if(save){try{localStorage.setItem('zk-theme',t)}catch(e){}}}
+let st=null;try{st=localStorage.getItem('zk-theme')}catch(e){}
+setTheme(st||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'),false);
+$$('[data-th]').forEach(b=>b.onclick=()=>setTheme(b.dataset.th,true));
+$('#yr').textContent=new Date().getFullYear();
+
+/* reveal */
+const io=('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches)?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1}):{observe:e=>e.classList.add('in')};
+$$('.rv').forEach(e=>io.observe(e));
+
+/* catalogue */
+const T=[
+{id:'count',n:'Word & Character Counter',d:'Words, characters, sentences and reading time.',c:'text',i:'📝'},
+{id:'case',n:'Text Case Converter',d:'UPPER, lower, Title, camelCase, snake_case and more.',c:'text',i:'🔠'},
+{id:'human',n:'Text Rewriter',d:'Rule-based rewrite with casual or formal tone.',c:'text',i:'✍️'},
+{id:'json',n:'JSON Formatter & Validator',d:'Beautify, minify and validate with error lines.',c:'dev',i:'🧩'},
+{id:'unit',n:'Unit Converter',d:'Length, weight and temperature in one tap.',c:'convert',i:'📐'},
+{id:'yt',n:'YouTube Title & Tags Helper',d:'Title ideas with length checks, tags and hashtags.',c:'creator',i:'🎬'}];
+const CATS={all:'All',text:'Text',dev:'Developer',creator:'Creator',convert:'Convert'};
+let cat='all',qs='';
+$('#chips').innerHTML=Object.entries(CATS).map(([k,v])=>`<button class="chip" data-k="${k}" aria-pressed="${k==='all'}">${v}</button>`).join('');
+$$('.chip').forEach(b=>b.onclick=()=>{cat=b.dataset.k;$$('.chip').forEach(z=>z.setAttribute('aria-pressed',z===b));draw()});
+$('#q').oninput=e=>{qs=e.target.value.toLowerCase().trim();draw()};
+function draw(){const g=$('#grid');g.innerHTML='';const f=T.filter(x=>(cat==='all'||x.c===cat)&&(x.n+' '+x.d).toLowerCase().includes(qs));
+if(!f.length){g.innerHTML='<p class="mu">No tools match your search.</p>';return}
+f.forEach(x=>{const b=document.createElement('button');b.className='card rv';b.innerHTML=`<span class="ic" aria-hidden="true">${x.i}</span><h3>${x.n}</h3><p>${x.d}</p>`;b.onclick=()=>openTool(x.id);g.append(b);io.observe(b)})}
+draw();
+
+/* dialog */
+const dlg=$('#dlg');
+function openTool(id){const x=T.find(z=>z.id===id);$('#dt').textContent=x.n;const b=$('#db');b.innerHTML='';tools[id](b);dlg.showModal()}
+$('#x').onclick=()=>dlg.close();
+dlg.addEventListener('click',e=>{
+if(e.target===dlg){dlg.close();return}
+const a=e.target.closest('[data-a]'),c=e.target.closest('[data-c]');
+if(a){const t=$('#o')||$('#t');
+if(a.dataset.a==='copy'){if(!t||!t.value.trim())return toast('Nothing to copy');cp(t.value)}
+else{$$('#db textarea,#db input:not([type=number])').forEach(z=>z.value='');const t1=$('#t');if(t1)t1.dispatchEvent(new Event('input'));toast('Cleared')}}
+if(c)cp(c.dataset.c)});
+const bar=(x='')=>`<div class="bar">${x}<button class="btn" data-a="copy">Copy</button><button class="btn" data-a="clear">Clear</button></div>`;
+
+const tools={
+count(b){
+b.innerHTML=`<textarea id="t" placeholder="Type or paste your text…" aria-label="Text"></textarea>${bar()}<div class="st" id="s"></div>`;
+const t=$('#t');const f=()=>{const v=t.value,w=(v.trim().match(/\S+/g)||[]).length,
+se=(v.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[]).filter(x=>x.trim()).length,
+pa=v.split(/\n\s*\n/).filter(x=>x.trim()).length,rt=w?Math.max(1,Math.ceil(w/200)):0;
+$('#s').innerHTML=[['Words',w],['Characters',v.length],['No spaces',v.replace(/\s/g,'').length],['Sentences',se],['Paragraphs',pa],['Read time',rt+' min']].map(([k,n])=>`<div><b>${n}</b><span>${k}</span></div>`).join('')};
+t.addEventListener('input',f);f()},
+case(b){
+b.innerHTML=`<textarea id="t" placeholder="Type or paste your text…" aria-label="Text"></textarea><div class="bar" id="cb"></div>${bar()}`;
+const W=s=>s.toLowerCase().match(/[\p{L}\p{N}]+/gu)||[];
+const cap=x=>x?x[0].toUpperCase()+x.slice(1):x;
+const M={'UPPER CASE':s=>s.toUpperCase(),'lower case':s=>s.toLowerCase(),
+'Title Case':s=>s.toLowerCase().replace(/(^|\s)(\p{L})/gu,(m,a,c)=>a+c.toUpperCase()),
+'Sentence case':s=>s.toLowerCase().replace(/(^\s*|[.!?]\s+)(\p{L})/gu,(m,a,c)=>a+c.toUpperCase()),
+'camelCase':s=>W(s).map((x,i)=>i?cap(x):x).join(''),
+'snake_case':s=>W(s).join('_'),'kebab-case':s=>W(s).join('-')};
+$('#cb').innerHTML=Object.keys(M).map(k=>`<button class="btn" data-k="${k}">${k}</button>`).join('');
+$$('#cb button').forEach(z=>z.onclick=()=>{const t=$('#t');if(!t.value.trim())return toast('Enter some text first');t.value=M[z.dataset.k](t.value)})},
+human(b){
+b.innerHTML=`<textarea id="t" placeholder="Paste your text…" aria-label="Input text"></textarea><div class="bar"><select id="tone" aria-label="Tone"><option>Casual</option><option>Formal</option></select><button class="btn pri" id="go">Rewrite</button></div><textarea id="o" readonly placeholder="Rewritten text appears here" aria-label="Output"></textarea>${bar()}<p class="mu sm">Note: this is a simple rule-based rewriter (synonyms, contractions, sentence tweaks). It does not guarantee passing AI detectors. Always review the result.</p>`;
+const C=Object.entries({utilize:'use',furthermore:'also',moreover:'also',additionally:'also',however:'but',therefore:'so',commence:'start',demonstrate:'show',numerous:'many',subsequently:'then',approximately:'about',assist:'help',obtain:'get',purchase:'buy','in order to':'to','a number of':'several','due to the fact that':'because'});
+const K=[['do not',"don't"],['does not',"doesn't"],['did not',"didn't"],['cannot',"can't"],['will not',"won't"],['it is',"it's"],['that is',"that's"],['I am',"I'm"],['they are',"they're"],['we are',"we're"],['you are',"you're"],['is not',"isn't"],['are not',"aren't"]];
+const F=[['get','obtain'],['help','assist'],['buy','purchase'],['show','demonstrate'],['also','additionally']];
+const sw=(s,p)=>p.reduce((r,[a,c])=>r.replace(new RegExp('\\b'+a+'\\b','gi'),m=>/^\p{Lu}/u.test(m)?c[0].toUpperCase()+c.slice(1):c),s);
+$('#go').onclick=()=>{const v=$('#t').value;if(!v.trim())return toast('Paste some text first');
+$('#o').value=$('#tone').value==='Casual'?sw(v,[...C,...K]).replace(/;\s*(\p{L})/gu,(m,c)=>'. '+c.toUpperCase()):sw(v,[...K.map(([a,c])=>[c,a]),...F]);toast('Done ✓')}},
+json(b){
+b.innerHTML=`<textarea id="t" placeholder='Paste JSON here, e.g. {"name":"Zenkit"}' aria-label="JSON" spellcheck="false"></textarea><div class="bar"><button class="btn pri" data-m="f">Format</button><button class="btn" data-m="m">Minify</button><button class="btn" data-m="v">Validate</button></div>${bar()}<div class="msg" id="mg" aria-live="polite"></div>`;
+const mg=(s,ok)=>{$('#mg').textContent=s;$('#mg').className='msg '+(ok?'ok':'warn')};
+$('#t').addEventListener('input',()=>{$('#mg').textContent=''});
+$$('[data-m]').forEach(z=>z.onclick=()=>{const t=$('#t'),v=t.value;if(!v.trim())return mg('Please paste some JSON first.',0);
+try{const o=JSON.parse(v);if(z.dataset.m==='f')t.value=JSON.stringify(o,null,2);if(z.dataset.m==='m')t.value=JSON.stringify(o);mg('✓ Valid JSON',1)}
+catch(e){let s=e.message;const p=s.match(/position (\d+)/);if(p){const pre=v.slice(0,+p[1]);s+=` (line ${pre.split('\n').length}, column ${pre.length-pre.lastIndexOf('\n')})`}mg('✗ '+s,0)}})},
+unit(b){
+const U={Length:{m:1,km:1e3,cm:.01,mm:.001,mi:1609.344,ft:.3048,in:.0254},Weight:{kg:1,g:.001,lb:.45359237,oz:.0283495},Temperature:{'°C':1,'°F':1,K:1}};
+b.innerHTML=`<div class="row"><select id="cat" aria-label="Category">${op(Object.keys(U))}</select><input id="v" type="number" value="1" aria-label="Value"></div><div class="row"><select id="f" aria-label="From"></select><button class="btn" id="sw" aria-label="Swap units">⇄</button><select id="to" aria-label="To"></select></div><div class="row"><input id="o" type="text" readonly aria-label="Result"><button class="btn" data-a="copy">Copy result</button></div>`;
+const fill=()=>{const k=Object.keys(U[$('#cat').value]);$('#f').innerHTML=op(k);$('#to').innerHTML=op(k);$('#to').selectedIndex=1;calc()};
+function calc(){const v=parseFloat($('#v').value),c=$('#cat').value,a=$('#f').value,z=$('#to').value;if(isNaN(v)){$('#o').value='';return}
+let r;if(c==='Temperature'){const k=a==='°C'?v:a==='°F'?(v-32)*5/9:v-273.15;r=z==='°C'?k:z==='°F'?k*9/5+32:k+273.15}else r=v*U[c][a]/U[c][z];
+$('#o').value=(+r.toPrecision(8))+' '+z}
+$('#cat').onchange=fill;['v','f','to'].forEach(i=>$('#'+i).addEventListener('input',calc));
+$('#sw').onclick=()=>{const a=$('#f').value;$('#f').value=$('#to').value;$('#to').value=a;calc()};fill()},
+yt(b){
+b.innerHTML=`<div class="bar"><input id="t" type="text" placeholder="Video topic, e.g. study tips" aria-label="Topic" style="flex:1 1 200px"><button class="btn pri" id="go">Generate</button></div><div id="r" aria-live="polite"></div>`;
+const run=()=>{const tp=$('#t').value.trim();if(!tp)return toast('Enter a topic first');
+const N=tp.replace(/(^|\s)(\p{L})/gu,(m,a,c)=>a+c.toUpperCase()),y=new Date().getFullYear();
+const ti=[`${N}: The Complete Beginner's Guide (${y})`,`How to ${tp} (Step by Step)`,`${N}: 7 Mistakes to Avoid`,`I Tried ${N} for 30 Days. Here's What Happened`,`${N} Explained in 5 Minutes`];
+const w=(tp.toLowerCase().match(/[\p{L}\p{N}]+/gu)||[]).filter(x=>x.length>2);
+const tags=[...new Set([tp.toLowerCase(),...w,'tutorial','howto','tips'])].slice(0,12).join(', ');
+const hs=[...w.slice(0,3).map(x=>'#'+x),'#tutorial'].join(' ');
+$('#r').innerHTML=ti.map(s=>`<div class="line"><span>${esc(s)}<br><small class="${s.length>60?'warn':'ok'}">${s.length}/100 chars${s.length>60?' · may be cut off in search':''}</small></span><button class="btn" data-c="${esc(s)}">Copy</button></div>`).join('')+
+`<div class="line"><span><b>Tags</b><br><small class="mu">${esc(tags)}</small></span><button class="btn" data-c="${esc(tags)}">Copy</button></div><div class="line"><span><b>Hashtags</b><br><small class="mu">${esc(hs)}</small></span><button class="btn" data-c="${esc(hs)}">Copy</button></div>`};
+$('#go').onclick=run;$('#t').addEventListener('keydown',e=>{if(e.key==='Enter')run()})}
+};
+</script>
+</body>
+</html>
